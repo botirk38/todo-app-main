@@ -19,7 +19,8 @@ type Action =
   | { type: 'DELETE_TODO', id: number }
   | { type: 'TOGGLE_TODO', id: number }
   | { type: 'SET_FILTER', filter: Filter }
-  | {type:'CLEAR_COMPLETED'};
+  | {type:'CLEAR_COMPLETED'}
+  | {type:'REORDER_TODO', todos: TodoProps[]};
 
 
   const todoReducer = (state: State, action: Action): State => {
@@ -62,6 +63,11 @@ type Action =
                 ...state,
                 todos: state.todos.filter(todo => !todo.completed)
             };
+        case 'REORDER_TODO':
+            return {
+                ...state,
+                todos: action.todos
+            };  
 
         default:
             return state;
@@ -104,6 +110,10 @@ const useTodo = () => {
         dispatch({ type: 'CLEAR_COMPLETED' });
     }
 
+    const reorderTodo = (todos: TodoProps []) => {
+        dispatch({ type: 'REORDER_TODO', todos: todos });
+    };
+
     const filteredTodos = () =>{
         switch(state.filter){
             case "all":
@@ -112,7 +122,7 @@ const useTodo = () => {
                 return state.todos.filter(todo => !todo.completed);
             case "completed":
                 return state.todos.filter(todo => todo.completed);
-            default:
+            default: 
                 return state.todos;
         }
     }
@@ -124,7 +134,8 @@ const useTodo = () => {
         deleteTodo,
         toggleTodo,
         setFilter,
-        clearCompleted
+        clearCompleted,
+        reorderTodo
 
     }
 }

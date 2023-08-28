@@ -208,6 +208,8 @@ section .todo-list ul .delete-btn {
   background-color: transparent;
   border: none;
   margin-left: auto;
+  cursor: pointer;
+  outline: none;
 }
 section .todo-list-controls {
   display: flex;
