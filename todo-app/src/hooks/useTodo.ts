@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 
 type Filter = 'all' | 'active' | 'completed';
 
@@ -68,8 +68,21 @@ type Action =
     }
 };
 
+const LOCAL_STORAGE_KEY = 'todos_data';
+
 const useTodo = () => {
-    const [state, dispatch] = useReducer(todoReducer, {todos: [], filter: 'all'});
+
+    const initialState: State = {
+        todos: JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]'),
+        filter: 'all'
+    };
+
+    const [state, dispatch] = useReducer(todoReducer, initialState);
+
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state.todos));
+
+    }, [state.todos]);
 
     const addTodo = (text: string) => {
         dispatch({ type: 'ADD_TODO', text });
