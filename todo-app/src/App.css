@@ -1,0 +1,369 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  background-color: hsl(0, 0%, 98%);
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+input::-moz-placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+input::placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 20rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+@media screen and (min-width: 1024px) {
+  header > div {
+    max-width: 55vw;
+  }
+}
+header > div > h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: hsl(0, 0%, 98%);
+  letter-spacing: 1rem;
+}
+header > div > button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+header > div > button > img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.header-light {
+  background-image: url("/src/assets/images/bg-mobile-light.jpg");
+}
+@media (min-width: 768px) {
+  .header-light {
+    background-image: url("/src/assets/images/bg-desktop-light.jpg");
+  }
+}
+
+.header-dark {
+  background-image: url("/src/assets/images/bg-mobile-dark.jpg");
+}
+@media (min-width: 768px) {
+  .header-dark {
+    background-image: url("/src/assets/images/bg-desktop-dark.jpg");
+  }
+}
+
+section {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+}
+section .todo-entry {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  z-index: 50;
+  box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.2);
+}
+@media screen and (min-width: 1024px) {
+  section .todo-entry {
+    max-width: 55vw;
+  }
+}
+section .todo-entry .todo-entry-box {
+  padding: 1.5rem;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: inherit;
+}
+section .todo-entry .todo-entry-box:focus {
+  outline: none;
+}
+section .todo-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  z-index: 50;
+  box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+@media screen and (min-width: 1024px) {
+  section .todo-list {
+    max-width: 55vw;
+  }
+}
+section .todo-list ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+section .todo-list ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid hsl(233, 11%, 84%);
+}
+@media screen and (min-width: 1024px) {
+  section .todo-list ul li {
+    width: 100%;
+  }
+}
+section .todo-list ul .delete-btn {
+  justify-self: flex-end;
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
+}
+section .todo-list-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 95%;
+  padding: 1rem;
+  gap: 6rem;
+}
+section .todo-list-controls a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  color: hsl(236, 9%, 61%);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+section .todo-list-controls a:hover {
+  color: hsl(220, 98%, 61%);
+}
+@media screen and (min-width: 768px) {
+  section .todo-list-controls {
+    gap: 2rem;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1024px) {
+  section .todo-list-controls {
+    justify-content: space-evenly;
+    min-width: 100%;
+    gap: 0rem;
+  }
+}
+section .todo-list-controls .filter-tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 100%;
+  width: 85%;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin-top: 2rem;
+}
+section .todo-list-controls .filter-tab a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  color: hsl(236, 9%, 61%);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+section .todo-list-controls .filter-tab a:hover {
+  color: hsl(220, 98%, 61%);
+}
+section .todo-list-controls .filter-tab .active {
+  color: hsl(220, 98%, 61%);
+}
+@media screen and (min-width: 1024px) {
+  section .todo-list-controls .filter-tab {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
+    align-items: flex-start;
+    min-width: 40%;
+    max-width: 40%;
+    width: auto;
+    padding: 0;
+    margin-top: 0;
+  }
+}
+
+.background-light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(235, 21%, 11%);
+}
+
+.text-light {
+  color: hsl(235, 19%, 35%);
+}
+
+.component-dark {
+  background-color: hsl(235, 24%, 19%);
+  color: hsl(234, 39%, 85%);
+}
+
+.text-dark {
+  color: hsl(233, 14%, 35%);
+}
+
+.text-dark-2 {
+  color: hsl(237, 14%, 26%);
+}
+
+.checkbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 1px solid hsl(236, 9%, 61%);
+  border-radius: 50%;
+  padding: 0.8rem;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  transition: background 0.3s, border 0.3s;
+  /* When the checkbox is checked */
+  /* Hover effect for the checkbox */
+}
+.checkbox:checked {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border-color: transparent;
+  color: hsl(0, 0%, 98%);
+}
+.checkbox:hover {
+  border-color: hsl(220, 98%, 61%); /* Or any color you prefer */
+}
+.checkbox::before {
+  content: "  ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px; /* Adjust accordingly */
+  color: white; /* Adjust according to your preference */
+  opacity: 0; /* Set to invisible initially */
+  transition: opacity 0.3s;
+}
+.checkbox:checked::before {
+  background: url("src/assets/images/icon-check.svg");
+  width: 12px;
+  height: 12px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1; /* When checked, set to visible */
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+.background-dark {
+  background-color: hsl(235, 21%, 11%);
+}
+
+.background-light {
+  background-color: hsl(0, 0%, 98%);
+}/*# sourceMappingURL=App.css.map */

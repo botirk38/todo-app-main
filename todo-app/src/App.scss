@@ -1,0 +1,33 @@
+
+// Abstracts
+@import "./styles/abstracts/variables";
+
+
+// Base
+
+@import "./styles/base/reset";
+@import "./styles/base/typography";
+
+
+// Components
+
+@import "./styles/header";
+@import "./styles/todo";
+
+// Theme
+
+@import "./styles/themes/darkTheme";
+@import "./styles/themes/lightTheme";
+
+.App{
+    width: 100vw;
+    height: 100vh;
+}
+
+.background-dark{
+    background-color: $very-dark-blue;
+}
+
+.background-light{
+    background-color: $very-light-gray;
+}

@@ -1,0 +1,68 @@
+@import './abstracts/variables';
+
+// Variables
+$primary-padding: 1rem;
+$primary-font-size: 3rem;
+$letter-spacing-size: 1rem;
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 20rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: $primary-padding;
+
+        @media screen and (min-width: 1024px) {
+          max-width: 55vw;
+          
+        }
+
+        > h1 {
+            font-size: $primary-font-size;
+            font-weight: 700;
+            color: $very-light-gray;
+            letter-spacing: $letter-spacing-size;
+        }
+        >button{
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+
+
+            >img{
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+}
+
+.header-light {
+    // Default is mobile
+    background-image: url('/src/assets/images/bg-mobile-light.jpg');
+  
+    // Override for desktop
+    @media (min-width: 768px) { // Adjust 768px to whatever breakpoint you want
+      background-image: url('/src/assets/images/bg-desktop-light.jpg');
+    }
+  }
+  
+  .header-dark {
+    background-image: url('/src/assets/images/bg-mobile-dark.jpg');
+  
+    @media (min-width: 768px) {
+      background-image: url('/src/assets/images/bg-desktop-dark.jpg');
+    }
+  }
+  
+  

@@ -1,0 +1,265 @@
+
+
+section {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+
+    .todo-entry {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        z-index: 50;
+        box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.2);
+
+        @media  screen and (min-width: 1024px) {
+            max-width: 55vw;
+
+            
+        }
+
+        .todo-entry-box {
+            padding: 1.5rem;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            background-color: inherit;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        
+    }
+
+    .todo-list {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        
+        z-index: 50;
+        box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        padding: 0.5rem ;
+
+        @media screen and (min-width: 1024px) {
+            max-width: 55vw;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            align-items: flex-start; 
+            gap: 1rem;
+            width: 100%;
+            margin-top: 2rem;
+
+            li {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                width: 90%;
+                gap: 1rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid $light-grayish-blue;
+
+                @media screen and (min-width: 1024px) {
+                    width:100%;
+                }
+                    
+                }
+
+                .delete-btn{
+                    justify-self: flex-end;
+                    align-self:flex-end;
+                    background-color: transparent;
+                    border: none;
+                    margin-left:auto;
+
+
+                }
+            }
+        }
+
+        .todo-list-controls {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            min-width: 95%;
+            padding: 1rem;
+            gap: 6rem;
+
+            a {
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 1rem;
+                color: $dark-grayish-blue-light-theme;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                
+                &:hover {
+                    color: $bright-blue;
+                }
+            }
+
+
+            @media  screen and (min-width: 768px) {
+                gap:2rem;
+                justify-content: space-between ;
+            
+                
+            }
+
+            @media screen and (min-width: 1024px) {
+                justify-content: space-evenly;
+                min-width: 100%;
+                gap:0rem;
+                
+            }
+
+        
+
+            .filter-tab {
+                display:flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                max-width: 100%;
+                width: 85%;
+                position: absolute;
+                top: 150%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 5px;
+                box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.2);
+                padding: 2rem;
+                margin-top:2rem;
+                
+
+                a {
+                    text-decoration: none;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    color: $dark-grayish-blue-light-theme;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+                    
+                    &:hover {
+                        color: $bright-blue;
+                    }
+                }
+
+                .active{
+                    color: $bright-blue;
+                }
+
+                @media screen and (min-width: 1024px) {
+                    position: relative;
+                    top: 0%;
+                    left: 0%;
+                    transform: translate(0%, 0%);
+                    align-items: flex-start;
+                    min-width: 40%;
+                    max-width: 40%;
+                
+                    width:auto;
+                    padding: 0;
+                    margin-top:0;
+                    
+                    
+                }
+            }
+        }
+    }
+
+
+.background-light {
+    background-color: $very-light-gray;
+    color: $very-dark-blue;
+}
+
+.text-light {
+    color: $very-dark-grayish-blue-light-theme;
+}
+
+.component-dark {
+    background-color: $very-dark-desaturated-blue;
+    color: $light-grayish-blue-dark-theme;
+}
+
+.text-dark {
+    color: $very-dark-grayish-blue-dark-theme-1;
+}
+
+.text-dark-2 {
+    color: $very-dark-grayish-blue-dark-theme-2;
+}
+
+.checkbox {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border: 1px solid $dark-grayish-blue-light-theme;
+    border-radius: 50%;
+    padding: 0.8rem;
+    position: relative;
+
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    transition: background 0.3s, border 0.3s;
+
+    /* When the checkbox is checked */
+    &:checked {
+        background: $check-background;
+        border-color: transparent;
+        color: $very-light-gray;
+    }
+
+    /* Hover effect for the checkbox */
+    &:hover {
+        border-color: $bright-blue; /* Or any color you prefer */
+    }
+
+    &::before {
+        content: '  ';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px; /* Adjust accordingly */
+        color: white; /* Adjust according to your preference */
+        opacity: 0; /* Set to invisible initially */
+        transition: opacity 0.3s;
+    }
+
+    &:checked::before {
+        background: url("src/assets/images/icon-check.svg");
+        width:12px;
+        height:12px;
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 1; /* When checked, set to visible */
+    }
+}
+
+
+
